@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VegaOneStarts – The Happy Paws Guide</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fffbee;--card:#fff;--text:#3b2f26;--muted:#85715f;--accent:#a8622a;--accent2:#2b8fb5;--soft:#fdeacb;--sky:#dff1f8;--h1:#ffe7a8;--h2:#ffcfa0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1812;--card:#2a231b;--text:#f7eee3;--muted:#c0ad97;--accent:#f0a860;--accent2:#6cc4e6;--soft:#3d3222;--sky:#1e3540;--h1:#54401f;--h2:#5a3a24}}
+:root[data-theme="dark"]{--bg:#1d1812;--card:#2a231b;--text:#f7eee3;--muted:#c0ad97;--accent:#f0a860;--accent2:#6cc4e6;--soft:#3d3222;--sky:#1e3540;--h1:#54401f;--h2:#5a3a24}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;line-height:1.85}
+.w{max-width:780px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;font-family:system-ui,sans-serif}
+.logo{font-weight:800;color:var(--accent);text-decoration:none;font-size:1.2rem}
+nav a.l{color:var(--muted);text-decoration:none;font-size:.88rem;margin-left:12px}
+.hero{background:linear-gradient(135deg,var(--h1),var(--h2));border-radius:32px;padding:36px 24px;text-align:center;margin-top:6px}
+.pets{display:flex;justify-content:center;gap:6px;margin-bottom:6px}
+.pets svg{width:96px;height:96px}
+.tag{display:inline-block;background:var(--card);color:var(--accent);font-family:system-ui,sans-serif;font-size:.8rem;padding:6px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(1.9rem,7vw,3rem);line-height:1.2;margin:0 0 14px}
+.sub{font-size:1.1rem;max-width:560px;margin:0 auto}
+.meta{font-family:system-ui,sans-serif;font-size:.85rem;margin-top:16px;color:var(--muted)}
+h2{font-size:1.55rem;margin:52px 0 10px}
+h2 small{display:block;font-family:system-ui,sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:4px}
+p{margin:0 0 16px}
+.card{background:var(--card);border-radius:22px;padding:22px 24px;margin:20px 0;box-shadow:0 4px 18px rgba(168,98,42,.1)}
+.card h3{margin:0 0 6px;font-size:1.08rem}
+.sky{background:var(--sky)}
+.journey{position:relative;margin:24px 0}
+.journey:before{content:"";position:absolute;left:39px;top:0;bottom:0;width:3px;background:var(--soft)}
+.stop{display:flex;gap:18px;margin-bottom:22px;position:relative}
+.ic{flex:0 0 80px;height:80px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;border:4px solid var(--bg)}
+.ic svg{width:56px;height:56px}
+.stop h3{margin:6px 0 4px;font-size:1.1rem}
+.stop p{margin:0}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.duo .card{margin:0}
+.duo h3{color:var(--accent2)}
+.q{border-left:4px solid var(--accent);background:var(--soft);padding:16px 20px;border-radius:0 16px 16px 0;font-style:italic;margin:28px 0}
+.toc{background:var(--card);border-radius:16px;padding:16px 22px;font-family:system-ui,sans-serif;font-size:.95rem;margin-top:22px}
+.toc a{color:var(--accent2);text-decoration:none;display:block;padding:3px 0}
+.opts{display:flex;flex-direction:column;gap:8px;font-family:system-ui,sans-serif;margin-top:10px}
+.opts button{border:0;text-align:left;background:var(--soft);color:var(--text);padding:12px 16px;border-radius:14px;font-size:.95rem;cursor:pointer}
+.opts button.on{background:var(--accent);color:#fff}
+.qq{display:none}.qq.on{display:block}
+.result{display:none;text-align:center}
+.result.on{display:block}
+.result svg{width:110px;height:110px;margin:0 auto}
+ol.steps{padding-left:0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;background:var(--card);border-radius:16px;padding:14px 18px 14px 58px;margin-bottom:12px;position:relative}
+ol.steps li:before{content:counter(s);position:absolute;left:16px;top:13px;width:30px;height:30px;border-radius:50%;background:var(--accent2);color:#fff;font-family:system-ui,sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-family:system-ui,sans-serif;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--soft)}
+th{color:var(--accent2)}
+dl{font-family:system-ui,sans-serif;font-size:.95rem}
+dt{font-weight:700;color:var(--accent2);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+details{background:var(--card);border-radius:14px;padding:12px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-family:system-ui,sans-serif;font-weight:700;padding:12px 22px;border-radius:99px}
+footer{text-align:center;color:var(--muted);font-family:system-ui,sans-serif;font-size:.85rem;padding:40px 0 30px;border-top:1px solid var(--soft);margin-top:50px}
+@media(max-width:560px){.duo{grid-template-columns:1fr}.ic{flex-basis:64px;height:64px}.ic svg{width:44px;height:44px}.journey:before{left:31px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="dog" viewBox="0 0 100 100"><path d="M22 34q-10 6-8 26q2 8 10 4l4-14z" fill="#b98253" stroke="#4a3a2e" stroke-width="3" stroke-linejoin="round"/><path d="M78 34q10 6 8 26q-2 8-10 4l-4-14z" fill="#b98253" stroke="#4a3a2e" stroke-width="3" stroke-linejoin="round"/><circle cx="50" cy="52" r="28" fill="#f3d3a8" stroke="#4a3a2e" stroke-width="3"/><circle cx="40" cy="47" r="3.5" fill="#4a3a2e"/><circle cx="60" cy="47" r="3.5" fill="#4a3a2e"/><ellipse cx="50" cy="58" rx="6" ry="4.5" fill="#4a3a2e"/><path d="M50 62v4q-5 5-10 1M50 66q5 5 10 1" stroke="#4a3a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="34" cy="60" r="4" fill="#ffb3c1" opacity=".8"/><circle cx="66" cy="60" r="4" fill="#ffb3c1" opacity=".8"/></symbol>
+<symbol id="cat" viewBox="0 0 100 100"><path d="M24 40l-2-22 18 12zM76 40l2-22-18 12z" fill="#ffb877" stroke="#4a3a2e" stroke-width="3" stroke-linejoin="round"/><circle cx="50" cy="55" r="28" fill="#ffc98f" stroke="#4a3a2e" stroke-width="3"/><circle cx="40" cy="50" r="3.5" fill="#4a3a2e"/><circle cx="60" cy="50" r="3.5" fill="#4a3a2e"/><path d="M47 58h6l-3 3z" fill="#ff8fa6" stroke="#4a3a2e" stroke-width="2"/><path d="M50 61q-4 5-9 2M50 61q4 5 9 2" stroke="#4a3a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M28 58h-10M28 63l-9 3M72 58h10M72 63l9 3" stroke="#4a3a2e" stroke-width="2" stroke-linecap="round"/><circle cx="34" cy="62" r="4" fill="#ffb3c1" opacity=".8"/><circle cx="66" cy="62" r="4" fill="#ffb3c1" opacity=".8"/></symbol>
+<symbol id="fish" viewBox="0 0 100 100"><path d="M18 50l-8-14v28z" fill="#7ec8ff" stroke="#4a3a2e" stroke-width="3" stroke-linejoin="round" transform="translate(66 0)"/><ellipse cx="46" cy="50" rx="30" ry="20" fill="#9fdcff" stroke="#4a3a2e" stroke-width="3"/><path d="M76 50l16-14v28z" fill="#7ec8ff" stroke="#4a3a2e" stroke-width="3" stroke-linejoin="round"/><circle cx="32" cy="46" r="4" fill="#fff" stroke="#4a3a2e" stroke-width="2"/><circle cx="31" cy="46" r="1.8" fill="#4a3a2e"/><path d="M26 58q4 3 8 0" stroke="#4a3a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M50 38q6 12 0 24M60 40q5 10 0 20" stroke="#4a3a2e" stroke-width="2" fill="none" opacity=".5"/></symbol>
+<symbol id="paw" viewBox="0 0 100 100"><ellipse cx="50" cy="64" rx="20" ry="16" fill="#e7a86b" stroke="#4a3a2e" stroke-width="3"/><ellipse cx="26" cy="46" rx="8" ry="10" fill="#e7a86b" stroke="#4a3a2e" stroke-width="3"/><ellipse cx="42" cy="32" rx="8" ry="10" fill="#e7a86b" stroke="#4a3a2e" stroke-width="3"/><ellipse cx="58" cy="32" rx="8" ry="10" fill="#e7a86b" stroke="#4a3a2e" stroke-width="3"/><ellipse cx="74" cy="46" rx="8" ry="10" fill="#e7a86b" stroke="#4a3a2e" stroke-width="3"/></symbol>
+<symbol id="bowl" viewBox="0 0 100 100"><path d="M18 52h64q-2 26-32 26T18 52z" fill="#8fd0c0" stroke="#4a3a2e" stroke-width="3" stroke-linejoin="round"/><ellipse cx="50" cy="52" rx="32" ry="8" fill="#ffd28a" stroke="#4a3a2e" stroke-width="3"/><circle cx="40" cy="47" r="4" fill="#c98a4b"/><circle cx="52" cy="45" r="4" fill="#c98a4b"/><circle cx="62" cy="48" r="4" fill="#c98a4b"/><circle cx="42" cy="66" r="2.5" fill="#4a3a2e"/><circle cx="58" cy="66" r="2.5" fill="#4a3a2e"/><path d="M46 71q4 3 8 0" stroke="#4a3a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="heart" viewBox="0 0 100 100"><path d="M50 82C16 58 22 26 42 28c6 0 8 4 8 6 0-2 2-6 8-6 20-2 26 30-8 54z" fill="#ff9fb5" stroke="#4a3a2e" stroke-width="3" stroke-linejoin="round"/><circle cx="41" cy="50" r="2.5" fill="#4a3a2e"/><circle cx="59" cy="50" r="2.5" fill="#4a3a2e"/><path d="M45 58q5 4 10 0" stroke="#4a3a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<div class="w">
+<nav><a class="logo" href="#top">🐾 VegaOneStarts</a><div><a class="l" href="#why">Read</a><a class="l" href="#journey">Journey</a><a class="l" href="#quiz">Quiz</a><a class="l" href="#faq">FAQ</a></div></nav>
+
+<header class="hero" id="top">
+<div class="pets"><svg><use href="#dog"/></svg><svg><use href="#cat"/></svg><svg><use href="#fish"/></svg></div>
+<span class="tag">Online Adventures Platform · Pets &amp; Home Journal</span>
+<h1>The Happy Paws Guide: A Gentle Start to Caring for a Pet</h1>
+<p class="sub">Designed for dreamers, built for doers. Begin Your Journey with a friendly, easy-to-read guide to welcoming an animal into your life.</p>
+<div class="meta">By the VegaOneStarts Team · 14 min read · Pets &amp; Wellbeing</div>
+</header>
+
+<div class="toc">
+<b>In this guide</b>
+<a href="#why">1. Why pets change our days</a>
+<a href="#lifestyle">2. Pet care as a lifestyle</a>
+<a href="#journey">3. The journey: six stops</a>
+<a href="#duo">4. Before you decide</a>
+<a href="#quiz">5. Interactive: which pet suits you?</a>
+<a href="#steps">6. Your first-week plan</a>
+<a href="#compare">7. Quick comparison</a>
+<a href="#glossary">8. Small glossary</a>
+<a href="#faq">9. Quick answers</a>
+</div>
+
+<section class="card sky">
+<h3>Built with care, made for you.</h3>
+<p style="margin:0">Because you deserve something truly special. Everything organized, clear and easy to revisit. We are a well-respected home for curious readers, and Meticulously hand-picked professionals with a refined skillset stemming from years of animal care and training experience shape every guide here.</p>
+</section>
+
+<article>
+<h2 id="why"><small>Chapter 1</small>Why pets change our days</h2>
+<p>A pet gives you a reason to wake up, go outside and slow down. Dogs remind us to walk, cats teach us to relax, and fish show us the calm of watching. Animals bring routine, laughter and a gentle kind of company.</p>
+<p>Not everything powerful has to look complicated. The heart of good pet care is simple: food, water, safety, exercise, attention and love. Small changes create big impacts, both for the animal and for you.</p>
+
+<div class="q">Anytime, Anywhere, Anything: a pet can fit a big house, a small flat or a shared room, as long as you match the animal to your lifestyle.</div>
+
+<h2 id="lifestyle"><small>Chapter 2</small>Pet care as a lifestyle</h2>
+<p>More than a product, it's a lifestyle. A pet is not an accessory. It is a living companion who depends on you every day. Experience excellence without compromise: you can give your pet a happy life without spending recklessly, by focusing on what truly matters.</p>
+<p>Don't wait – your future starts now. Reading, learning and preparing today makes the future welcome much smoother. Join thousands already making the switch from wishing to preparing.</p>
+
+<h2 id="journey"><small>Chapter 3</small>The journey: six stops</h2>
+<div class="journey">
+<div class="stop"><div class="ic"><svg><use href="#heart"/></svg></div><div><h3>Stop 1 · Simple Signup, Instant Access</h3><p>Begin with easy first steps: talk to family, visit a local shelter or trusted breeder, and ask questions. Adoption is often simple and welcoming.</p></div></div>
+<div class="stop"><div class="ic"><svg><use href="#bowl"/></svg></div><div><h3>Stop 2 · Designed for Everyday Fun</h3><p>Feeding time, play time and walk time turn ordinary days into small celebrations. Easy Games, Big Smiles: a ball, a feather toy or a cardboard box is often enough.</p></div></div>
+<div class="stop"><div class="ic"><svg><use href="#dog"/></svg></div><div><h3>Stop 3 · Smooth Gameplay Experience</h3><p>Training feels like a friendly game. Short sessions, kind words and small treats teach basic manners. Your Fun, Your Rules: pick a routine that suits you both.</p></div></div>
+<div class="stop"><div class="ic"><svg><use href="#cat"/></svg></div><div><h3>Stop 4 · Premium Feel, Smooth Play</h3><p>A clean bed, fresh water and a tidy litter or walking routine give a premium feel to even a simple home. Smooth Gameplay &amp; Service applies to vets too: choose a caring one nearby.</p></div></div>
+<div class="stop"><div class="ic"><svg><use href="#paw"/></svg></div><div><h3>Stop 5 · Safe &amp; Secure</h3><p>Pet-proof the home: hide wires, lock away medicines and cleaning products, and use collars with ID tags. Keep toxic foods like chocolate and grapes out of reach.</p></div></div>
+<div class="stop"><div class="ic"><svg><use href="#fish"/></svg></div><div><h3>Stop 6 · Enjoy Anytime, Anywhere</h3><p>Once routines settle, life together becomes easy. Enjoy Anytime, Anywhere, whether it is a morning walk, an evening cuddle or a quiet aquarium glow.</p></div></div>
+</div>
+<p>Discover the perfect blend of quality and value: good food, regular vet check-ups and daily attention matter more than fancy gadgets. Entertainment Without Limits can come from a simple cardboard box, and Discover Joy in Play with your pet every single day.</p>
+
+<h2 id="duo"><small>Chapter 4</small>Before you decide</h2>
+<div class="duo">
+<div class="card"><h3>💛 The joys</h3><p style="margin:0;color:var(--muted)">Companionship, exercise, routine, laughter and a strong sense of purpose. Many people feel calmer and less lonely.</p></div>
+<div class="card"><h3>📝 The responsibilities</h3><p style="margin:0;color:var(--muted)">Daily care, time, vet visits, cleaning and planning for travel. A pet may live for 10 to 20 years.</p></div>
+</div>
+
+<h2 id="quiz"><small>Chapter 5</small>Interactive: which pet suits you?</h2>
+<p>Answer three quick questions. It is just for fun, not professional advice.</p>
+<div class="card" id="quiz">
+<div class="qq on"><h3>1. How much free time do you have daily?</h3><div class="opts"><button data-s="d">Lots, I love being busy outdoors</button><button data-s="c">A fair amount, but I like calm time</button><button data-s="f">Not much, I need something low-effort</button></div></div>
+<div class="qq"><h3>2. What is your home like?</h3><div class="opts"><button data-s="d">Roomy, with a garden or nearby park</button><button data-s="c">A regular flat</button><button data-s="f">Small room or shared space</button></div></div>
+<div class="qq"><h3>3. What kind of company do you want?</h3><div class="opts"><button data-s="d">An energetic buddy</button><button data-s="c">A cuddly, independent friend</button><button data-s="f">A calm, watch-and-relax companion</button></div></div>
+<div class="result" id="res"><svg id="rs"><use href="#dog"/></svg><h3 id="rt"></h3><p id="rd" style="margin:0"></p></div>
+</div>
+
+<h2 id="steps"><small>Chapter 6</small>Your first-week plan</h2>
+<p>Try it out today and you'll never be disappointed. Here is a calm way to prepare.</p>
+<ol class="steps">
+<li><b>Choose the right pet.</b> Match energy, space and time. Be honest about your routine.</li>
+<li><b>Prepare the home.</b> Set up a bed, bowls, safe toys and a quiet corner.</li>
+<li><b>Find a vet.</b> Book a first check-up in the first week.</li>
+<li><b>Set a routine.</b> Regular feeding, walking and sleeping times help animals feel secure.</li>
+<li><b>Be patient.</b> Give your pet time to adjust and celebrate small wins together.</li>
+</ol>
+
+<div class="card">
+<h3>Why prepare early</h3>
+<p>Act fast – limited time, unlimited value. Puppies and kittens grow quickly, and those first weeks shape trust for years. Click today and unlock exclusive benefits: loyalty, laughter and a friend waiting at the door. Read the comparison below to see what fits.</p>
+<a class="btn" href="#compare">See the comparison ↓</a>
+</div>
+
+<h2 id="compare"><small>Chapter 7</small>Quick comparison</h2>
+<div class="tbl"><table>
+<tr><th>Pet</th><th>Daily attention</th><th>Space needed</th><th>Best for</th></tr>
+<tr><td>🐶 Dog</td><td>High</td><td>Medium to large</td><td>Active, outdoorsy people</td></tr>
+<tr><td>🐱 Cat</td><td>Medium</td><td>Small to medium</td><td>Calm, home-loving people</td></tr>
+<tr><td>🐟 Fish</td><td>Low</td><td>Small</td><td>Busy people who enjoy calm views</td></tr>
+</table></div>
+
+<h2 id="glossary"><small>Chapter 8</small>Small glossary</h2>
+<dl>
+<dt>Vaccination</dt><dd>Shots that protect pets from serious diseases.</dd>
+<dt>Enrichment</dt><dd>Toys, puzzles and activities that keep a pet's mind busy.</dd>
+<dt>Socialisation</dt><dd>Helping a young pet feel comfortable with people, places and other animals.</dd>
+<dt>Microchip</dt><dd>A tiny chip under the skin that helps identify a lost pet.</dd>
+</dl>
+
+<h2><small>Closing</small>A new chapter, with paws</h2>
+<p>New chapter of luck begins now, one gentle step at a time. A Breathtaking Experience begins the moment an animal trusts you. Incredible Fun And More awaits in every walk, purr and splash. Creating a Magical Atmosphere at home is often as simple as a warm bed, a full bowl and a loving voice.</p>
+
+<h2 id="faq"><small>Chapter 9</small>Quick answers</h2>
+<details><summary>Is adoption better than buying?</summary><p>Adoption gives an animal a second chance and is often simpler. Choose whichever route is responsible and ethical where you live.</p></details>
+<details><summary>Can I have a pet in a small home?</summary><p>Yes, with the right animal. Cats, small dogs and fish often suit smaller spaces.</p></details>
+<details><summary>How do I know if my pet is unwell?</summary><p>Changes in appetite, energy, breathing or behaviour are worth a vet visit. When in doubt, call a professional.</p></details>
+<details><summary>What if I travel a lot?</summary><p>Plan ahead with trusted family, a pet sitter or boarding. Or wait until your routine allows.</p></details>
+</article>
+
+<section class="card" style="text-align:center;margin-top:44px">
+<svg style="width:80px;height:80px;margin:0 auto 6px;display:block"><use href="#paw"/></svg>
+<h3>Ready to begin?</h3>
+<p style="margin:0;color:var(--muted)">Learn, prepare, and welcome your new friend with a full heart.</p>
+</section>
+
+<footer>🐾 VegaOneStarts · Built with care, made for you.</footer>
+</div>
+<script>
+(function(){
+var qs=document.querySelectorAll('.qq'),res=document.getElementById('res'),sc={d:0,c:0,f:0},i=0;
+var out={d:['dog','You are a dog person! 🐶','Active, loyal and outdoorsy. A dog will love your energy and walks.'],c:['cat','You are a cat person! 🐱','Calm and cozy. A cat fits a relaxed home and a warm lap.'],f:['fish','You are a fish person! 🐟','Low-effort and peaceful. Fish bring quiet beauty to a busy life.']};
+qs.forEach(function(q,k){q.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){
+sc[b.dataset.s]++;q.classList.remove('on');
+if(k<qs.length-1){qs[k+1].classList.add('on')}else{var m='d';['c','f'].forEach(function(x){if(sc[x]>sc[m])m=x});
+document.querySelector('#rs use').setAttribute('href','#'+out[m][0]);document.getElementById('rt').textContent=out[m][1];document.getElementById('rd').textContent=out[m][2];res.classList.add('on')}})})});
+})();
+</script>
+</body>
+</html>
